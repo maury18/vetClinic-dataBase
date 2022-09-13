@@ -11,3 +11,7 @@ CREATE TABLE public.animals
 
 ALTER TABLE IF EXISTS public.animals
     OWNER to postgres;
+
+// New Column
+ALTER TABLE IF EXISTS public.animals
+    ADD COLUMN species text;
