@@ -5,6 +5,10 @@ This is database project of a Vet clinic where is going to be saving the animals
 
 - Major languages: PostgreSQL Technologies used: VSC, Github, Gitflow
 
+## Getting Started:
+- Clone the repository in your computer
+- Run: npm run build and then npm start to see project displayed in your browser.
+
 ## Authors
 
 👤 *Author1*
