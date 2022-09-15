@@ -47,3 +47,40 @@ ALTER TABLE animals ADD COLUMN species_id INT
 
 ALTER TABLE animals ADD COLUMN owner_id INT
 	REFERENCES owners(id);
+
+/* vets table */
+CREATE TABLE public.vets
+(
+    id bigserial,
+    name text,
+    age integer,
+    date_of_graduation date,
+    PRIMARY KEY (id)
+);
+
+ALTER TABLE IF EXISTS public.vets
+    OWNER to postgres;
+
+/* specializations table */
+CREATE TABLE specializations (
+    vets_id integer,
+    species_id integer
+);
+
+ALTER TABLE specializations ADD FOREIGN KEY (species_id) REFERENCES species (id);
+ALTER TABLE specializations ADD FOREIGN KEY (vet_id) REFERENCES vets (id);
+
+/* visits table */
+CREATE TABLE visits(
+    id SERIAL NOT NULL,
+    vets_id INT,
+	animals_id INT,
+    date_of_visit DATE,
+	PRIMARY KEY(id)
+);
+
+ALTER TABLE visits
+ADD FOREIGN KEY(vets_id) REFERENCES vets(id);
+
+ALTER TABLE visits
+ADD FOREIGN KEY(animals_id) REFERENCES animals(id);
